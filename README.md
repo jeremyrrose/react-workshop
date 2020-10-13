@@ -36,7 +36,7 @@
 ```javascript
 const things = this.state.thingsArray.map(thing => <Thing prop1={thing.prop1} prop2={thing.prop2}>)
 
-// in render()
+// in return()
 { things }
 ```
 
