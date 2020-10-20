@@ -1,66 +1,24 @@
-# React
+# React in a Week
 
-## Key Concepts
+This workshop is designed for graduates of General Assembly NY's "Pineapple" cohort. Students will participate in approximately 5 hours of direct instruction, followed by roughly 11 hours of group work to produce a React app built to work with an existing API.
 
-* Node dev server
-* JSX
-* Virtual DOM
+Prerequisites:
+* Fluency in JavaScript, HTML and CSS
+* Experience with REST APIs
+* Experience with Git
 
-* Component types:
+Required materials:
+* Bash shell
+* Node.js installed
+* [VSCode](https://code.visualstudio.com/)
+* [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en_)
 
-    * Functional
-    * Class-based
+## Instructional materials
+[**Four-part tutorial**](Tutorial/README.md)
 
-* Render:
-
-    * Triggered by change in props or state
-    * `return` in functional component; `render()` method in class
-
-* Props:
-
-    * Passed in as object
-    * Access: `props` in functional components; `this.props` in class components
-    * Declaration: `<ComponentName id=1 data={[]} myFunc={() => return false} />` creates:
-    ```javascript
-    props = {
-        id: 1,
-        data: [],
-        myFunc: () => return false
-    }
-    ```
-
-* Mapping:
-
-    * Use a `.map()` method to render a list of components
-
-```javascript
-const things = this.state.thingsArray.map(thing => <Thing prop1={thing.prop1} prop2={thing.prop2}>)
-
-// in return()
-{ things }
-```
-
-* Class components and `state`:
-
-    * Access: `this.state`
-    * To set: `this.setState({key: value})` DO NOT SET DIRECTLY!
-
-* Lifecycle methods:
-
-    * Full description: https://reactjs.org/docs/react-component.html
-    * Most used: `constructor`, `componentDidMount`, `componentDidUpdate`
-
-* Other useful ideas:
-
-    * Conditional rendering: `&&` and `?` for `if` and `if...else` behavior
-    * Controlled components: Link `onChange` to state via a handler function; value equal to value in state
+## Project
+[**Project requirements and tools**](Project/README.md)
 
 
-* Planning concepts:
-
-    * Component structure and file paths
-    * Where will state be held?
-    * Router vs. pure single-page app
-
-
-
+## Thank you!
+To the students of SEI Pineapple for participating, and to Besrat Z., Magda K., and Ebs B. for donating their Django API work.
