@@ -20,6 +20,8 @@ this.state = {
 
 In this example, `e.target.name` refers to the `name` property of the `input` -- the `handleChange` method ties this named input to the key in state of the same name.
 
+>Learn more about forms in React: https://reactjs.org/docs/forms.html
+
 ### Logical Operators
 
 Logical operators (`&&`, `||`, and `?`) are often used as a shorthand to create conditional rendering in JSX. The key to this is knowing what is *returned* by these operators:
