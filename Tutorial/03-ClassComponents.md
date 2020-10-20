@@ -20,7 +20,7 @@ State is initialized in the class `constructor()` method:
     }
 ```
 
-After this initialization, any methods within the class can access these values by calling the appropriate key in `this.state`.
+After this initialization, any methods within the class can read these values by referencing the appropriate key in `this.state`.
 
 ### Rendering
 
