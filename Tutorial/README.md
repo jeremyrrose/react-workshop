@@ -11,5 +11,5 @@ The following is a *very* shallow overview of React's key features, interspersed
 1. [Key Concepts](01-KeyConcepts.md)
 2. [Function Components](02-FunctionComponents.md)
 3. [Class Components](03-ClassComponents.md)
-4. [Controlled Components and More](04-ControlledComponentAndMore.md)
+4. [Controlled Components and More](04-ControlledComponentsAndMore.md)
 
