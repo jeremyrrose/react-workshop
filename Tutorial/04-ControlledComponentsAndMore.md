@@ -126,3 +126,5 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
           </Switch>
         </BrowserRouter>
 ```
+
+>You will need to use a `<Link>` component to navigate between pages. Look it up in the docs!
