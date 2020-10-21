@@ -40,3 +40,89 @@ const records = this.state.records[0] && this.state.records.map(record => <Recor
 
 Keep an eye out for opportunities to use these operators for `if` and `if...else`-type logic.
 
+### API Data
+
+Because React is compiled in Node, it's possible to import *functions* from external files just as easily as importing components. One typical pattern is to store functions that communicate with an API in a `/services` directory in `/src`.
+
+For instance, you might place this in `/services/index.js`:
+```javascript
+export const getMessages = async (token) => {
+    const resp = await fetch(apiUrl + 'api/messages/',
+        {
+            method: 'GET',
+            headers: {
+                "Content-Type": 'Application/JSON',
+                "Authorization": `JWT ${token}`               
+            }  
+        }
+    ).then(response => response.json())
+    return resp
+}
+```
+>Notice the `export const`. We'll use that in a moment!
+
+Your component, then, might look something like this:
+```javascript
+import React from 'react'
+
+import {getMessages} from '../services'
+
+class DataDisplayer extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            data: []
+        }
+    }
+
+    componentDidMount = async () => {
+        await this.getMessagesMethod()
+    }
+
+    // assumes a JWT is passed as props from parent component that holds login state
+    getMessagesMethod = async () => {
+        const resp = await getMessages(this.props.token)
+        console.log(resp)
+        this.setState({
+            data: resp.data
+        })
+    }
+
+    render () {
+        return (<></>)
+    }
+}
+```
+
+>Take a look at this repository to see an example of a login system that imports `fetch`-based functions from `/services` into a component: https://github.com/jeremyrrose/logger-inner
+
+## Router
+
+If your project would benefit from URL routing, you can install React Router by running `npm i react-router-dom` in your project directory. [React Router has very nice docs.](https://reactrouter.com/)
+
+The easiest setup is to use a `<Switch>` component with nested `<Route>` components:
+
+```javascript
+// with other imports
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+// in render
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/">
+              <LandingPage propOne={propOne} etc={etc} />
+            </Route>
+            <Route path="/login">              
+              <Login propOne={propOne} etc={etc} />
+            </Route>
+            <Route path="/register">              
+              <Register propOne={propOne} etc={etc} />
+            </Route>
+            {/* The following will show the userId route param in props.match.params in the Profile component */}
+            <Route path="/profile/:userId">
+              <Profile propOne={propOne} etc={etc} />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+```
